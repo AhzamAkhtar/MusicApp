@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e8f603d3bc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="mapp.css">
+</head>
+<body>
+     <div class="maindiv">
+         <div class="music_container">
+             <h2 id="tittle">LOTUS LANE</h2>
+             <h3 id="artist">THE LOYALIST</h3>
+             <div class="imagecontainer">
+                 <img src="first.png" alt="" srcset="">
+             </div>
+             <audio src="first.mp3"></audio>
+             <div class="musiccontrol">
+                <i class="fas fa-backward" id="prev" title="previous"></i>
+                <i class="fas fa-play mainbutton" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+             </div>
+         </div>
+     </div>
+     <script>
+         const img=document.querySelector("img")
+         const music=document.querySelector("audio")
+         const play=document.getElementById("play")
+         const artist=document.getElementById("artist")
+         const tittle=document.getElementById("tittle")
+         const prev=document.getElementById("prev")
+         const next=document.getElementById("next")
+         const songs=[
+             {
+                name:"first",
+                tittle:"LOTUSLANE",
+                artist:"LOYALIST",
+             },
+             {
+                name:"second",
+                tittle:"SAPPHERIOUS",
+                artist:"AURORA",
+             },
+             {
+                name:"third",
+                tittle:"WALKING FIRIRI",
+                artist:"GORKHALI TAKMA",
+             },
+         ]
+         let isplaying=false;
+         const playmusic=()=>{
+            isplaying=true;
+            music.play();
+            play.classList.replace("fa-play","fa-pause");
+            img.classList.add("anime");
+         };
+         const pausemusic=()=>{
+             isplaying=false;
+             music.pause();
+             play.classList.replace("fa-pause","fa-play")
+             img.classList.remove("anime");
+         };
+         play.addEventListener("click",()=>{
+            if(isplaying){
+                pausemusic();
+            }else{
+                playmusic();
+            }
+            
+         });
+         const loadsongs=(songs)=>{
+             tittle.textContent=songs.tittle;
+             artist.textContent=songs.artist;
+             music.src=songs.name + ".mp3";
+             img.src=songs.name + ".png";
+         };
+         //loadsongs(songs[2]);
+         songindex=0;
+         const nextsong=()=>{
+             songindex=(songindex+1)%songs.length; //2=3%3=0
+             loadsongs(songs[songindex]);
+             playmusic();
+         };
+         const prevsong=()=>{
+             songindex=(songindex-1+songs.length)%songs.length;
+             loadsongs(songs[songindex]);
+             playmusic();
+         };
+         next.addEventListener("click",nextsong);
+         prev.addEventListener("click",prevsong);
+     </script>
+</body>
+</html>

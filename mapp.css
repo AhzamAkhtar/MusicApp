@@ -1,0 +1,93 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.maindiv{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f6f6f6;
+    display: grid;
+    place-items: center;
+}
+.music_container{
+    width: 35rem;
+    height: 45rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(0, 0, 0, 0.4);
+}
+.music_container #tittle{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+    color: black;
+    margin: 2rem,0 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 0.3 0.5 rgba(0,0,0,0.3);
+}
+.music_container #artist{
+    color: #cccaca;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+}
+.imagecontainer{
+    width: 25rem;
+    height: 25rem;
+    margin:auto;
+}
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.musiccontrol{
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 2rem;
+}
+.musiccontrol .fas{
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.musiccontrol .mainbutton{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #111;
+    color: #f6f6f6;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.musiccontrol .fas:hover{
+    color: grey;
+}
+.musiccontrol .fa-play:hover{
+    background-color: #f6f6f6;
+    color: black;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(0, 0, 0, 0.4);
+}
+.anime{
+    animation: rotateplayer 3s linear infinite;
+}
+@keyframes rotateplayer{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
